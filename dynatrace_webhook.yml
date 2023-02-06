@@ -1,18 +1,34 @@
 ---
-- name: Listen for events on a webhook
-  hosts: all
-  sources:
-    - ansible.eda.webhook:
-        host: 0.0.0.0
-        port: 5000
-      filters:
-        - ansible.eda.json_filter:
-            exclude_keys: ['sender', 'owner']
-        - ansible.eda.dashes_to_underscores:
+- name: Connecting  Webserver
+  hosts: webserver01
+  remote_user: ec2-user
+  become: true
+  become_user: root
+  become_method: sudo
+  gather_facts: false
+  collections:
+    - servicenow.itsm
 
-  rules:
-    - name: Say Hello
-      condition: event.meta.headers.eventtype  == "http_server"
-      action:
-        run_playbook:
-          name: http_fix.yml
+  vars:
+    SN_USERNAME: admin
+    SN_PASSWORD: 
+    SN_INSTANCE: 
+
+  tasks:
+
+    - name: Create incident
+      servicenow.itsm.incident:
+       instance:
+         host: https://{{ SN_INSTANCE }}.service-now.com/
+         username: "{{ SN_USERNAME }}"
+         password: "{{ SN_PASSWORD }}"
+       state: new
+       caller: admin
+       short_description: Http Server stopped running
+       description: Http service is inactive, EDA will attempt to correct. on Server XXXXX
+
+    - name: httpd is started
+      service:
+        name: httpd
+        state: started
+        enabled: true
