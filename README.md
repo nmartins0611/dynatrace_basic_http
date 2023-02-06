@@ -1,7 +1,7 @@
 # 
-dynatrace.yml -- Rulebook
-http_fix.yml -- Remedy Playbook
-httd_dyna.sh -- Bash script to stop httpd.service
+dynatrace.yml -- Rulebook<br />
+http_fix.yml -- Remedy Playbook<br />
+httd_dyna.sh -- Bash script to stop httpd.service<br />
 
 
 # dynatrace_basic_http
