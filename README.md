@@ -35,31 +35,31 @@ I used the Default Alerting profile with all of the timers set to 0.
 
 Payload Examples:
 
-{
-"dedup_key": "{PID}",
-"event_action": "trigger",
-"routing_key" : "YOUR_INTEGRATION_KEY",
-"payload": {
+{<br />
+"dedup_key": "{PID}",<br />
+"event_action": "trigger",<br />
+"routing_key" : "YOUR_INTEGRATION_KEY",<br />
+"payload": {<br />
 
  
-"summary": "{ProblemTitle}",
-"source": "{ImpactedEntity}",
-"severity": "critical",
-"client": "dynatrace",
-"client_url": "{ProblemURL}",
+"summary": "{ProblemTitle}",<br />
+"source": "{ImpactedEntity}",<br />
+"severity": "critical",<br />
+"client": "dynatrace",<br />
+"client_url": "{ProblemURL}",<br />
 
  
-"custom_details": {
-"incident_key": "{PID}",
-"hostname": "{ImpactedEntity}",
-"event_storage_id": "{ImpactedEntity}",
-"State": "{State}",
-"ProblemTitle": "{ProblemTitle}",
-"Problem Details HTML": "{ProblemDetailsHTML}",
-"Problem Details JSON": {ProblemDetailsJSON},
-"ProblemID": "{ProblemID}",
-"Impact": "{ProblemImpact}"
+"custom_details": {<br />
+"incident_key": "{PID}",<br />
+"hostname": "{ImpactedEntity}",<br />
+"event_storage_id": "{ImpactedEntity}",<br />
+"State": "{State}",<br />
+"ProblemTitle": "{ProblemTitle}",<br />
+"Problem Details HTML": "{ProblemDetailsHTML}",<br />
+"Problem Details JSON": {ProblemDetailsJSON},<br />
+"ProblemID": "{ProblemID}",<br />
+"Impact": "{ProblemImpact}"<br />
    
-        }
-    }
+        }<br />
+    }<br />
 }
