@@ -1,11 +1,31 @@
 ---
-- name: Connecting Webserver
+- name: Connecting  Webserver
   hosts: webserver01
   remote_user: ec2-user
+  become: true
+  become_user: root
+  become_method: sudo
   gather_facts: false
-#  vars:
+  collections:
+    - servicenow.itsm
+
+  vars:
+    SN_USERNAME: 
+    SN_PASSWORD: 
+    SN_INSTANCE: 
 
   tasks:
+
+    - name: Create incident
+      servicenow.itsm.incident:
+       instance:
+         host: https://{{ SN_INSTANCE }}.service-now.com/
+         username: "{{ SN_USERNAME }}"
+         password: "{{ SN_PASSWORD }}"
+       state: new
+       caller: admin
+       short_description: Http Server stopped running
+       description: Http service is inactive, EDA will attempt to correct. on Server XXXXX
 
     - name: httpd is started
       service:
@@ -13,15 +33,15 @@
         state: started
         enabled: true
 
-    - name: Firewall is Enabled
-      service:
-        name: firewalld
-        state: started
-        enabled: true
+#    - name: Firewall is Enabled
+#      service:
+#        name: firewalld
+#        state: started
+#        enabled: true
 
-    - name: HTTP Service is Open on Firewall
-      firewalld:
-        service: http
-        state: enabled
-        permanent: true
-        immediate: yes     
+#    - name: HTTP Service is Open on Firewall
+#      firewalld:
+#        service: http
+#        state: enabled
+#        permanent: true
+#        immediate: yes
