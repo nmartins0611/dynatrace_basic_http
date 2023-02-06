@@ -17,9 +17,9 @@ eventtype: http_server
 
 Payload Info:
 
-{
-"summary": "{ProblemTitle}",
-"source": "{ImpactedEntity}"
+{<br />
+"summary": "{ProblemTitle}",<br />
+"source": "{ImpactedEntity}"<br />
 }
 
 I used the Default Alerting profile with all of the timers set to 0.
@@ -35,7 +35,6 @@ I used the Default Alerting profile with all of the timers set to 0.
 
 Payload Examples:
 
-{<br />
 "dedup_key": "{PID}",<br />
 "event_action": "trigger",<br />
 "routing_key" : "YOUR_INTEGRATION_KEY",<br />
@@ -60,6 +59,3 @@ Payload Examples:
 "ProblemID": "{ProblemID}",<br />
 "Impact": "{ProblemImpact}"<br />
    
-        }<br />
-    }<br />
-}
