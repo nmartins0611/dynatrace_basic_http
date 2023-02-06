@@ -22,15 +22,15 @@ Payload Info:
 "source": "{ImpactedEntity}"<br />
 }
 
-I used the Default Alerting profile with all of the timers set to 0.
+I used the Default Alerting profile with all of the timers set to 0.<br />
 
 
-###################################
+###################################<br />
 
 
 
 
-###################################
+###################################<br />
 
 
 Payload Examples:
