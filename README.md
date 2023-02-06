@@ -1,3 +1,9 @@
+# 
+dynatrace.yml -- Rulebook
+http_fix.yml -- Remedy Playbook
+httd_dyna.sh -- Bash script to stop httpd.service
+
+
 # dynatrace_basic_http
 
 Setup Notification alerts in Settings>Integration>Problem Notifications 
